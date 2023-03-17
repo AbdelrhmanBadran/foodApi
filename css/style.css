@@ -122,7 +122,9 @@ aside{
 .links-container{
   height: 250px;
 }
-
+.search-loader,.loader-search{
+  margin-top: 100px !important;
+}
 @media screen and (max-width: 600px){
   aside{
     width: 100%;

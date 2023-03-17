@@ -371,13 +371,13 @@ function displayTag(arr){
 }
 
 async function serachByName(meal){
-  $('.loader').removeClass('d-none')
+  $('.loader-search').removeClass('d-none')
   const api = await fetch(`https://www.themealdb.com/api/json/v1/1/search.php?s=${meal}`)
   const res = await api.json()
   console.log(res);
 
   displaySerachByName(res.meals)
-  $('.loader').addClass('d-none')
+  $('.loader-search').addClass('d-none')
 
 }
 
@@ -400,13 +400,13 @@ function displaySerachByName(res){
 }
 
 async function serachByFirstLetter(char){
-  $('.loader').removeClass('d-none')
+  $('.loader-search').removeClass('d-none')
   const api = await fetch(`https://www.themealdb.com/api/json/v1/1/search.php?f=${char}`)
   const res = await api.json()
   console.log(res);
 
   displaySerachByFirstLetter(res.meals)
-  $('.loader').addClass('d-none')
+  $('.loader-search').addClass('d-none')
 
 }
 
