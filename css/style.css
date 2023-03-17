@@ -122,8 +122,10 @@ aside{
 .links-container{
   height: 250px;
 }
-.search-loader,.loader-search{
+.search-loader,
+.loader-search{
   margin-top: 100px !important;
+  /* display: none; */
 }
 @media screen and (max-width: 600px){
   aside{
@@ -135,13 +137,19 @@ aside{
     background-color: rgba(255, 255, 255);
 
   }
+  h1,
   h2,
   h3,
   h4{
-    font-size: 12px;
+    font-size: 20px;
+    letter-spacing: 2px;
   }
   p{
     font-size: 10px;
+  }
+  .layer{
+    justify-content: center !important;
+    align-items: center !important;
   }
 }
 
@@ -162,10 +170,12 @@ aside{
 
 
 /***************************/
-.form-control{
+.search-input{
   background-color: black !important;
   border: 1px solid #f8f8f8;
   color: #ccc !important;
+  width: 80%;
+  margin: auto;
 }
 
 .validationINput{
