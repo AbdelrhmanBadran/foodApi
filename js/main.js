@@ -16,7 +16,7 @@ $(document).ready(()=>{
 })
 
 getAllMeals()
-//?=====================================================Events======================================================>
+//!=====================================================Events======================================================>
 
 $('#closeNav').click(function(){
   if ($(this).hasClass('fa-bars')) {
@@ -208,7 +208,7 @@ document.forms[0].addEventListener('keyup' , (e)=>{
   }
 
 })
-//!==========================================================functions=================================================>
+//?==========================================================functions=================================================>
 
 async function getAllMeals() {
   $('.loader').removeClass('d-none')
@@ -218,7 +218,6 @@ async function getAllMeals() {
   console.log(res.meals);
   dislplayAllMeals(res.meals)
 }
-
 
 function dislplayAllMeals(res){
   let cartoona = '';
@@ -238,7 +237,6 @@ function dislplayAllMeals(res){
   }
   $('#mealContainer').html(cartoona)
 } 
-
 
 async function passId(id){
   $('#mealContainer').addClass('d-none')
@@ -337,7 +335,6 @@ function dislplaySingleMeal(res){
     $('#mealDetails').html(cartoona)
 }
 
-
 function displayInt(arr1 , arr2){
   let cartoona= ''
   for (let index = 0; index < arr1.length; index++) {
@@ -353,7 +350,6 @@ function displayInt(arr1 , arr2){
   }
   document.getElementById('recInt').innerHTML = cartoona;
 }
-
 
 function displayTag(arr){
   let cartoona = '';
@@ -427,6 +423,7 @@ function displaySerachByFirstLetter(res){
   }
   $('#serachContainer').html(cartoona)
 }
+
 async function catrgory(){
   $('.loader').removeClass('d-none')
   const api = await fetch(`https://www.themealdb.com/api/json/v1/1/categories.php`)
@@ -466,6 +463,7 @@ async function passCategoryStr(cate){
   dislplayAllMeals(res.meals.slice(0,20))
   $('.loader').addClass('d-none')
 }
+
 async function Area(){
   $('.loader').removeClass('d-none')
   const api = await fetch(`https://www.themealdb.com/api/json/v1/1/list.php?a=list`)
@@ -502,6 +500,7 @@ async function passAreaStr(area){
   dislplayAllMeals(res.meals)
   $('.loader').addClass('d-none')
 }
+
 async function Ingredients(){
   $('.loader').removeClass('d-none')
   const api = await fetch(`https://www.themealdb.com/api/json/v1/1/list.php?i=list`)
