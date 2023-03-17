@@ -9,7 +9,7 @@ const inputs = document.querySelectorAll('#validationContainer input')
 
 //*=====================================================When Start================================================>
 
-$(window).ready(()=>{
+$(document).ready(()=>{
   $('body').removeClass('overflow-hidden')
   $('.main-loader').addClass('d-none')
   
