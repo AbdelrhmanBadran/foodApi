@@ -125,7 +125,6 @@ aside{
 .search-loader,
 .loader-search{
   margin-top: 100px !important;
-  /* display: none; */
 }
 @media screen and (max-width: 600px){
   aside{
@@ -133,7 +132,7 @@ aside{
     left: -75%;
   }
   .logo-part{
-    width: 15%;
+    width: 20%;
     background-color: rgba(255, 255, 255);
 
   }
@@ -141,15 +140,21 @@ aside{
   h2,
   h3,
   h4{
-    font-size: 20px;
+    font-size: 25px;
     letter-spacing: 2px;
   }
   p{
-    font-size: 10px;
+    font-size: 12px;
   }
   .layer{
     justify-content: center !important;
     align-items: center !important;
+  }
+  .meal-caption{
+    text-align: center;
+  }
+  .Instructions-caption{
+    text-align: center;
   }
 }
 

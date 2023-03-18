@@ -45,8 +45,8 @@ $('#closeNav').click(function(){
         } , 500)
     }
 
-    console.log($('body').innerWidth());
-    console.log($('aside').innerWidth());
+    // console.log($('body').innerWidth());
+    // console.log($('aside').innerWidth());
     $('.links-container a').animate({
       'marginTop' : '150%'
     } , 1000)
@@ -58,7 +58,7 @@ links[0].addEventListener('click' , (e)=>{
   e.preventDefault()
   $('main').addClass('d-none')
   $('.serach').removeClass('d-none')
-  if ($('aside').innerWidth() == $('body').innerWidth() ) {
+  if ($('body').innerWidth() < 600) {
     $('aside').animate({
       'left' : '-75%'
       } , 500)
@@ -93,7 +93,7 @@ links[1].addEventListener('click' , (e)=>{
   $('#validationContainer').addClass('d-none')
   $('#mealContainer').removeClass('d-none')
   $('.serach').addClass('d-none')
-  if ($('aside').innerWidth() == $('body').innerWidth() ) {
+  if ($('body').innerWidth() < 600 ) {
     $('aside').animate({
       'left' : '-75%'
       } , 500)
@@ -120,7 +120,7 @@ links[2].addEventListener('click' , (e)=>{
   $('#mealContainer').removeClass('d-none')
   $('.serach').addClass('d-none')
 
-  if ($('aside').innerWidth() == $('body').innerWidth() ) {
+  if ($('body').innerWidth() < 600 ) {
     $('aside').animate({
       'left' : '-75%'
       } , 500)
@@ -147,7 +147,7 @@ links[3].addEventListener('click' , (e)=>{
   $('#mealContainer').removeClass('d-none')
   $('.serach').addClass('d-none')
 
-  if ($('aside').innerWidth() == $('body').innerWidth() ) {
+  if ($('body').innerWidth() < 600) {
     $('aside').animate({
       'left' : '-75%'
       } , 500)
@@ -174,7 +174,7 @@ links[4].addEventListener('click' , (e)=>{
   $('#mealContainer').addClass('d-none')
   $('.serach').addClass('d-none')
 
-  if ($('aside').innerWidth() == $('body').innerWidth() ) {
+  if ($('body').innerWidth() < 600 ) {
     $('aside').animate({
       'left' : '-75%'
       } , 500)
@@ -208,13 +208,28 @@ document.forms[0].addEventListener('keyup' , (e)=>{
   }
 
 })
+window.addEventListener('resize' , ()=>{
+  if ($('body').innerWidth() < 600) {
+    $('aside').css({
+      'left' : '-75%'
+      })
+      $('#closeNav').addClass('fa-bars')
+    $('#closeNav').removeClass('fa-xmark')
+  }else{
+    $('aside').css({
+      'left' : '-22.5%'
+      })
+      $('#closeNav').addClass('fa-bars')
+    $('#closeNav').removeClass('fa-xmark')
+  }
+})
 //?==========================================================functions=================================================>
 
 async function getAllMeals() {
-  $('.loader').removeClass('d-none')
+  $('.loader').fadeIn(500)
   const api = await fetch('https://www.themealdb.com/api/json/v1/1/search.php?s=')
   const res = await api.json()
-  $('.loader').addClass('d-none')
+  $('.loader').fadeOut(500)
   console.log(res.meals);
   dislplayAllMeals(res.meals)
 }
@@ -242,10 +257,10 @@ async function passId(id){
   $('#mealContainer').addClass('d-none')
   $('#mealDetails').removeClass('d-none')
   // console.log(id);
-  $('.loader').removeClass('d-none')
+  $('.loader').fadeIn(500)
   const api = await fetch(`https://www.themealdb.com/api/json/v1/1/lookup.php?i=${id}`)
   const res = await api.json()
-  $('.loader').addClass('d-none')
+  $('.loader').fadeOut(500)
   // console.log(res.meals[0]);
 
   let recIntIndex = []
@@ -301,12 +316,12 @@ function dislplaySingleMeal(res){
           <div class=" rounded-2 bg-danger position-relative overflow-hidden">
             <img src="${res.strMealThumb}" class="w-100 h-100" alt="">
           </div>
-          <h2 class="text-white ms-1">
+          <h2 class="text-white ms-1 meal-caption">
             ${res.strMeal}
           </h2>
         </div>
         <div class="col-md-8">
-          <div class="text-white">
+          <div class="text-white Instructions-caption">
             <h1>Instructions:</h1>
             <p>
             ${res.strInstructions}
@@ -325,7 +340,7 @@ function dislplaySingleMeal(res){
 
               </div>
             </div>
-            <div class="mt-5">
+            <div class="mt-5 footer-btn">
               <a href="${res.strSource}" target='_blank' class="btn btn-success">Source</a>
               <a href="${res.strYoutube}" target='_blank' class="btn btn-danger">Youtube</a>
             </div>
@@ -367,13 +382,14 @@ function displayTag(arr){
 }
 
 async function serachByName(meal){
-  $('.loader-search').removeClass('d-none')
+  $('.search-loader').removeClass('d-none')
+  $('.search-loader').fadeIn(500)
   const api = await fetch(`https://www.themealdb.com/api/json/v1/1/search.php?s=${meal}`)
   const res = await api.json()
   console.log(res);
 
   displaySerachByName(res.meals)
-  $('.loader-search').addClass('d-none')
+  $('.search-loader').fadeOut(500)
 
 }
 
@@ -396,13 +412,13 @@ function displaySerachByName(res){
 }
 
 async function serachByFirstLetter(char){
-  $('.loader-search').removeClass('d-none')
+  $('.loader-search').fadeIn(500)
   const api = await fetch(`https://www.themealdb.com/api/json/v1/1/search.php?f=${char}`)
   const res = await api.json()
   console.log(res);
 
   displaySerachByFirstLetter(res.meals)
-  $('.loader-search').addClass('d-none')
+  $('.loader-search').fadeOut(500)
 
 }
 
@@ -425,13 +441,13 @@ function displaySerachByFirstLetter(res){
 }
 
 async function catrgory(){
-  $('.loader').removeClass('d-none')
+  $('.loader').fadeIn(500)
   const api = await fetch(`https://www.themealdb.com/api/json/v1/1/categories.php`)
   const res = await api.json()
   console.log(res.categories);
 
   displayCatrgory(res.categories)
-  $('.loader').addClass('d-none')
+  $('.loader').fadeOut(500)
 
 }
 
@@ -456,22 +472,23 @@ function displayCatrgory(res){
 
 async function passCategoryStr(cate){
   console.log(cate);
-  $('.loader').removeClass('d-none')
+  $('.loader').fadeIn(500)
   const api = await fetch(`https://www.themealdb.com/api/json/v1/1/filter.php?c=${cate}`)
   const res = await api.json()
   console.log(res.meals.slice(0,20));
   dislplayAllMeals(res.meals.slice(0,20))
-  $('.loader').addClass('d-none')
+  $('.loader').fadeOut(500)
 }
 
 async function Area(){
-  $('.loader').removeClass('d-none')
+  $('.loader').fadeIn(500)
   const api = await fetch(`https://www.themealdb.com/api/json/v1/1/list.php?a=list`)
   const res = await api.json()
   console.log(res.meals);
 
   displayArea(res.meals)
-  $('.loader').addClass('d-none')
+  $('.loader').fadeOut(500)
+
 
 }
 
@@ -493,22 +510,22 @@ function displayArea(res){
 
 async function passAreaStr(area){
   console.log(area);
-  $('.loader').removeClass('d-none')
+  $('.loader').fadeIn(500)
   const api = await fetch(`https://www.themealdb.com/api/json/v1/1/filter.php?a=${area}`)
   const res = await api.json()
   console.log(res.meals);
   dislplayAllMeals(res.meals)
-  $('.loader').addClass('d-none')
+  $('.loader').fadeOut(500)
 }
 
 async function Ingredients(){
-  $('.loader').removeClass('d-none')
+  $('.loader').fadeIn(500)
   const api = await fetch(`https://www.themealdb.com/api/json/v1/1/list.php?i=list`)
   const res = await api.json()
   console.log(res.meals.slice(0,20));
 
   displayIngredients(res.meals.slice(0,20))
-  $('.loader').addClass('d-none')
+  $('.loader').fadeOut(500)
 
 }
 
@@ -531,12 +548,12 @@ function displayIngredients(res){
 
 async function passIngredientsStr(Ingredients){
   console.log(Ingredients);
-  $('.loader').removeClass('d-none')
+  $('.loader').fadeIn(500)
   const api = await fetch(`https://www.themealdb.com/api/json/v1/1/filter.php?i=${Ingredients}`)
   const res = await api.json()
   console.log(res.meals);
   dislplayAllMeals(res.meals)
-  $('.loader').addClass('d-none')
+  $('.loader').fadeOut(500)
 }
 
 //*<========================================================Validation=====================================================>//
