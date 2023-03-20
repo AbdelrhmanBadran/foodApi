@@ -21,10 +21,10 @@
 
 
   <!-- ?============start Main loading================  -->
-  <div class="main-loader">
+  <div class="main-loader position-relative">
     <div class="container-fluid">
       <div class="row">
-        <div class="position-absolute w-100 h-100 top-0 bg-black d-flex justify-content-center align-items-center">
+        <div class="position-fixed w-100 vh-100 top-0 bg-black d-flex justify-content-center align-items-center">
           <div class="lds-roller">
           <div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div>
         </div>
@@ -33,7 +33,6 @@
     </div>
   </div>
   <!-- ?============End Main loading================  -->
-
 
   <!-- !============start Side navbar================  -->
   <aside class="position-fixed top-0  bottom-0 min-vh-100 ">
@@ -77,14 +76,14 @@
 
 
   <!-- *============start Main================  -->
-  <main class=" h-100 my-3  position-absolute top-0 start-0">
+  <main class=" h-100 my-3  position-relative top-0 start-0">
     <div class="container">
 
       <div class="row">
 
         <div class="container loader d-none">
           <div class="row">
-            <div class=" bg-black   position-absolute w-100 vh-100 top-0 start-0 end d-flex justify-content-center align-items-center">
+            <div class="position-fixed w-100 vh-100 top-0 bg-black  start-0  d-flex justify-content-center align-items-center">
               <div class="lds-roller">
               <div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div>
             </div>
@@ -98,7 +97,7 @@
       </div>
 
       <div class="row gy-4 position-relative d-none" id="mealDetails">
-        <!--! Single maeal details  -->
+        <!-- ! Single maeal details  -->
       </div>
       
       <form >
@@ -140,7 +139,7 @@
               <i class="fa-solid fa-eye"></i>
               <input type="password"  class="form-control validationINput" placeholder="Enter Your Password">
               <div class="alert alert-danger p-1 invalid-feedback">
-                <p>Enter valid password *Minimum eight characters, at least one letter and one number:*</p>
+                <p> Your password *Minimum eight characters, at least one letter and one number:*</p>
               </div>
             </div>
           </div>
@@ -192,13 +191,12 @@
               </div>
             </div>
           </div>
-                      <!--Search content -->
+                      <!--! Search content -->
         </div>
       </div>
     </div>
   </section>
-  <!-- ?============End Search================  -->
-
+  <!-- ?============End Search================ 
 
 
 

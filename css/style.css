@@ -5,13 +5,15 @@
   scroll-behavior: smooth;
 }
 
-
+/* body{
+  height: 2000px;
+} */
 /**=======start Side nav==========*/
 .main-loader{
-  z-index: 999999999999999999999999999999999999;
+  z-index: 9999999;
 }
 .loader{
-  z-index: 99999999;
+  z-index: 99;
 }
 .lds-roller {
   display: inline-block;
@@ -105,7 +107,7 @@
 }
 aside{
   width: 30%;
-  z-index: 9999999;
+  z-index: 999;
   left: -22.5%;
 }
 .logo-part{
@@ -190,6 +192,10 @@ main{
   .search-input::placeholder{
     font-size: 10px;
   }
+  #validationContainer input::placeholder{
+    font-size: 11px;
+  }
+  
 }
 /**===========End search section========*/
 

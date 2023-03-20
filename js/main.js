@@ -258,6 +258,7 @@ function dislplayAllMeals(res){
 } 
 //function of get data details of  meal
 async function passId(id){
+  $(window).scrollTop(0)
   $('.loader').fadeIn(0)
   const api = await fetch(`https://www.themealdb.com/api/json/v1/1/lookup.php?i=${id}`)
   const res = await api.json()
@@ -431,6 +432,7 @@ function displaySerachByFirstLetter(res){
 }
 //function of get data of categories 
 async function catrgory(){
+  $(window).scrollTop(0)
   $('.loader').fadeIn(0)
   const api = await fetch(`https://www.themealdb.com/api/json/v1/1/categories.php`)
   const res = await api.json()
@@ -460,6 +462,7 @@ function displayCatrgory(res){
 //function of display meal of categories 
 async function passCategoryStr(cate){
   console.log(cate);
+  $(window).scrollTop(0)
   $('.loader').fadeIn(0)
   const api = await fetch(`https://www.themealdb.com/api/json/v1/1/filter.php?c=${cate}`)
   const res = await api.json()
@@ -469,6 +472,7 @@ async function passCategoryStr(cate){
 }
 //function of get data of area 
 async function Area(){
+  $(window).scrollTop(0)
   $('.loader').fadeIn(0)
   const api = await fetch(`https://www.themealdb.com/api/json/v1/1/list.php?a=list`)
   const res = await api.json()
@@ -494,6 +498,7 @@ function displayArea(res){
 }
 //function of display meal of area 
 async function passAreaStr(area){
+  $(window).scrollTop(0)
   console.log(area);
   $('.loader').fadeIn(0)
   const api = await fetch(`https://www.themealdb.com/api/json/v1/1/filter.php?a=${area}`)
@@ -504,6 +509,7 @@ async function passAreaStr(area){
 }
 //function of get data of Ingredients 
 async function Ingredients(){
+  $(window).scrollTop(0)
   $('.loader').fadeIn(0)
   const api = await fetch(`https://www.themealdb.com/api/json/v1/1/list.php?i=list`)
   const res = await api.json()
@@ -531,6 +537,7 @@ function displayIngredients(res){
 //function of display meal of area 
 async function passIngredientsStr(Ingredients){
   console.log(Ingredients);
+  $(window).scrollTop(0)
   $('.loader').fadeIn(0)
   const api = await fetch(`https://www.themealdb.com/api/json/v1/1/filter.php?i=${Ingredients}`)
   const res = await api.json()
