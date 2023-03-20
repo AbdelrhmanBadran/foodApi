@@ -10,8 +10,8 @@ const inputs = document.querySelectorAll('#validationContainer input')
 //*=====================================================When Start================================================>
 //main loading page
 $(document).ready(()=>{
+  $('.main-loader').fadeOut(500)
   $('body').removeClass('overflow-hidden')
-  $('.main-loader').fadeOut(0)
   
 })
 // first section of random meals
@@ -191,9 +191,24 @@ document.forms[0].addEventListener('keyup' , (e)=>{
     $('#sunmitBtn').attr('disabled' , 'true')
     $('#sunmitBtn').removeClass('btn-success')
     $('#sunmitBtn').addClass('btn-outline-danger')
-
   }
+})
+//event of show password
+document.querySelectorAll('.pass-input i').forEach(ele => {
+  ele.addEventListener('click' , function(){
+    if ($(this).next().val().length > 0 && $(this).hasClass('fa-eye') ) {
+      $(this).removeClass('fa-eye')
+      $(this).addClass('fa-eye-slash')
+      $(this).next().attr('type' , 'text')
+      // console.log('text');
+    } else {
+      $(this).addClass('fa-eye')
+      $(this).removeClass('fa-eye-slash')
+      $(this).next().attr('type' , 'password')
+      // console.log('pass');
 
+    }
+  })
 })
 //event off media query of side bar
 window.addEventListener('resize' , ()=>{
@@ -216,7 +231,7 @@ window.addEventListener('resize' , ()=>{
 
 //function of get random meals 
 async function getAllMeals() {
-  $('.loader').fadeIn(0)
+  $('.loader').removeClass('d-none')
   const api = await fetch('https://www.themealdb.com/api/json/v1/1/search.php?s=')
   const res = await api.json()
   $('.loader').fadeOut(500)

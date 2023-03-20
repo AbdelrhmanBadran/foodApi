@@ -21,10 +21,10 @@
 
 
   <!-- ?============start Main loading================  -->
-  <div class="main-loader  position-fixed w-100 h-100 top-0 z-5 bg-black">
-    <div class="container-fluid position-fixed w-100 h-100 top-0 z-5">
-      <div class="row h-100">
-        <div class=" h-100 bg-black hstack justify-content-center">
+  <div class="main-loader">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="position-absolute w-100 h-100 top-0 bg-black d-flex justify-content-center align-items-center">
           <div class="lds-roller">
           <div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div>
         </div>
@@ -77,12 +77,14 @@
 
 
   <!-- *============start Main================  -->
-  <main class="ms-5 mt-5 h-100 mb-5  position-relative">
-    <div class="container h-100 ">
-      <div class="loader  position-fixed w-100 h-100 top-0">
-        <div class="container position-fixed w-100 h-100 top-0 z-5">
-          <div class="row h-100">
-            <div class=" h-100 bg-black hstack justify-content-center">
+  <main class=" h-100 my-3  position-absolute top-0 start-0">
+    <div class="container">
+
+      <div class="row">
+
+        <div class="container loader d-none">
+          <div class="row">
+            <div class=" bg-black   position-absolute w-100 vh-100 top-0 start-0 end d-flex justify-content-center align-items-center">
               <div class="lds-roller">
               <div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div>
             </div>
@@ -92,9 +94,11 @@
       </div>
 
       <div class="row gy-4 position-relative" id="mealContainer">
+        <!-- !meals container -->
       </div>
 
       <div class="row gy-4 position-relative d-none" id="mealDetails">
+        <!--! Single maeal details  -->
       </div>
       
       <form >
@@ -132,7 +136,8 @@
             </div>
           </div>
           <div class="col-md-6">
-            <div  class="vstack">
+            <div  class="vstack pass-input position-relative">
+              <i class="fa-solid fa-eye"></i>
               <input type="password"  class="form-control validationINput" placeholder="Enter Your Password">
               <div class="alert alert-danger p-1 invalid-feedback">
                 <p>Enter valid password *Minimum eight characters, at least one letter and one number:*</p>
@@ -140,7 +145,8 @@
             </div>
           </div>
           <div class="col-md-6">
-            <div  class="vstack">
+            <div  class="vstack pass-input position-relative">
+              <i class="fa-solid fa-eye"></i>
               <input type="password" class="form-control validationINput" placeholder="Repassword">
               <div class="alert alert-danger p-1 invalid-feedback">
                 <p>Enter Valid Password</p>

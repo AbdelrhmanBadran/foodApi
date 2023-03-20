@@ -105,7 +105,7 @@
 }
 aside{
   width: 30%;
-  z-index: 99999999999999999;
+  z-index: 9999999;
   left: -22.5%;
 }
 .logo-part{
@@ -158,6 +158,10 @@ aside{
 
 
 /**===========start meal container========*/
+main{
+  width: 90%;
+  margin-left:10% ;
+}
 .meal-container{
   height: 280px;
   cursor: pointer;
@@ -201,5 +205,11 @@ input[type="number"]::-webkit-outer-spin-button {
   appearance: none;
   display: none;
 }
-
+.pass-input i{
+  position: absolute;
+  right: 0;
+  top: 50%;
+  margin-right: 30px;
+  transform: translateY(-50%);
+}
 /**===========End validation section========*/
